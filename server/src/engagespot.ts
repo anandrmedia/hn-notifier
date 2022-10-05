@@ -1,5 +1,6 @@
 import axios from "axios"
 import { AppConfig } from "./config"
+import { logger } from "./logger";
 
 export const engagespot = {
     send: async (recipient: string, title: string, message: string, url: string, icon: string) =>{

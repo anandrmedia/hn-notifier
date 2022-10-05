@@ -21,10 +21,12 @@ export default async (job: Job, done:DoneCallback) => {
             logger('looping back till '+lastMaxId);
 
             for(let i=maxItemId; i>lastMaxId; i--){
-                logger("Pushing to fetch_and_notify with id ",i);
+                logger("Pushing to fetch_and_notify with id "+i);
                 queue.add('fetch_and_notify',{
                     name:'fetch_and_notify',
                     id:i
+                  },{
+                    removeOnComplete: true
                   });
             }
 
