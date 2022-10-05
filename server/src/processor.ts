@@ -55,10 +55,11 @@ export default async (job: Job, done:DoneCallback) => {
                 const id = response.data.id;
                 const type = response.data.type;
 
-                const users = await redis.lrange('users',0,-1);
+                let users: string[] | null = await redis.lrange('users',0,-1);
 
                 //Send notification only if they're using our extension
                 if(users.indexOf(to) > -1){
+                    users = null;
                     //Notify this user.
                     const notificationTitle = commentBy+' replied to your '+type
                     const notificationBody = commentText;
