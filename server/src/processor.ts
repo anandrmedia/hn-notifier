@@ -22,7 +22,7 @@ export default async (job: Job, done:DoneCallback) => {
 
             for(let i=maxItemId; i>lastMaxId; i--){
                 logger("Pushing to fetch_and_notify with id "+i);
-                queue.add('fetch_and_notify',{
+                await queue.add('fetch_and_notify',{
                     name:'fetch_and_notify',
                     id:i
                   },{
@@ -30,7 +30,7 @@ export default async (job: Job, done:DoneCallback) => {
                   });
             }
 
-            redis.set('lastMaxId',maxItemId);
+            await redis.set('lastMaxId',maxItemId);
             done();
         }).catch((error) => {
             done(error);
@@ -65,15 +65,17 @@ export default async (job: Job, done:DoneCallback) => {
                     const notificationBody = commentText;
 
                     logger(notificationTitle);
-                    engagespot.send(to,notificationTitle,notificationBody,'https://news.ycombinator.com/item?id='+id+'#33099007','https://news.ycombinator.com/y18.gif');
-
+                    await engagespot.send(to,notificationTitle,notificationBody,'https://news.ycombinator.com/item?id='+id+'#33099007','https://news.ycombinator.com/y18.gif');
+                    done();
                 }else{
                     logger("user not in list "+to)
+                    done();
                 }
-                done();
+                
             }).catch((error) => {
                 done(error);
-            })
+            });
+
         }).catch((error) => {
             done(error);
         })
