@@ -7,7 +7,7 @@ import { logger } from "./logger";
 import { queue } from "./queue";
 import { redis } from "./redis";
 
-export default async (job: Job, done:DoneCallback) => {
+export default async (job: Job) => {
 
     logger('processor started');
 
@@ -31,9 +31,9 @@ export default async (job: Job, done:DoneCallback) => {
             }
 
             await redis.set('lastMaxId',maxItemId);
-            done();
+            return Promise.resolve(true);
         }).catch((error) => {
-            done(error);
+            return Promise.reject(error);
         })
     }
 
@@ -43,8 +43,7 @@ export default async (job: Job, done:DoneCallback) => {
         axios.get(AppConfig.HN_API_FETCH_ITEM_URL+job.data.id+'.json').then((response) => {
             
             if(response.data.type != 'comment'){
-                done();
-                return;
+                return Promise.resolve(true);
             }
 
             const commentBy = response.data.by;
@@ -67,24 +66,18 @@ export default async (job: Job, done:DoneCallback) => {
 
                     logger(notificationTitle);
                     await engagespot.send(to,notificationTitle,notificationBody,'https://news.ycombinator.com/item?id='+id+'#33099007','https://news.ycombinator.com/y18.gif');
-                    done();
+                    return Promise.resolve(true);
                 }else{
-                    logger("user not in list "+to)
-                    done();
+                    logger("user not in list "+to);
+                    return Promise.resolve(true);
                 }
-
-                return;
                 
             }).catch((error) => {
-                done(error);
-                return;
+                return Promise.reject(error);
             });
 
-            return;
-
         }).catch((error) => {
-            done(error);
-            return;
+            return Promise.reject(error);
         })
         
     }
