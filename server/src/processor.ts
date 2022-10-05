@@ -58,7 +58,7 @@ export default async (job: Job, done:DoneCallback) => {
                 let users: string[] | null = await redis.lrange('users',0,-1);
 
                 //Send notification only if they're using our extension
-                if(users.indexOf(to) > -1){
+                if(users.indexOf(to) > -1 && (to != commentBy)){
                     users = null;
                     //Notify this user.
                     const notificationTitle = commentBy+' replied to your '+type
