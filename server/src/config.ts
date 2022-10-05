@@ -3,7 +3,7 @@ import path from 'path';
 dotenv.config({ path: path.join(__dirname, '../.env') });
 
 interface AppConfig{
-    DEBUG: boolean
+    DEBUG: number
     APP_PORT : number
     REDIS_HOST: string
     REDIS_PORT: number
@@ -15,7 +15,7 @@ interface AppConfig{
 }
 
 export const AppConfig: AppConfig = {
-    DEBUG: process.env.DEBUG as unknown as boolean || false,
+    DEBUG: process.env.DEBUG as unknown as number || 0,
     APP_PORT : process.env.APP_PORT as unknown as number || 3000,
     REDIS_HOST : process.env.REDIS_HOST || '127.0.0.1',
     REDIS_PORT : process.env.REDIS_PORT as unknown as number || 6379,

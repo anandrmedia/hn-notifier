@@ -1,5 +1,7 @@
 import { AppConfig } from "./config"
 
 export const logger = (message: string) => {
-    AppConfig.DEBUG && console.log(message);
+    if(AppConfig.DEBUG == 1){ 
+        console.log(message)
+    }
 }

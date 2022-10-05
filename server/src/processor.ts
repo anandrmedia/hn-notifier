@@ -67,6 +67,8 @@ export default async (job: Job, done:DoneCallback) => {
                     logger(notificationTitle);
                     engagespot.send(to,notificationTitle,notificationBody,'https://news.ycombinator.com/item?id='+id+'#33099007','https://news.ycombinator.com/y18.gif');
 
+                }else{
+                    logger("user not in list "+to)
                 }
                 done();
             }).catch((error) => {

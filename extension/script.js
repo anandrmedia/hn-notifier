@@ -8,6 +8,8 @@ bellIconHolder.style.float = 'right'
 pagetop.parentNode.insertBefore(bellIconHolder, pagetop.nextSibling);
 
 //Register
+//prod https://hnnotifier.engagespot.co
+//loc http://localhost:3002
 fetch('https://hnnotifier.engagespot.co/register', {
     method: 'POST',
     headers: {
