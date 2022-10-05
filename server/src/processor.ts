@@ -44,6 +44,7 @@ export default async (job: Job, done:DoneCallback) => {
             
             if(response.data.type != 'comment'){
                 done();
+                return;
             }
 
             const commentBy = response.data.by;
@@ -71,13 +72,19 @@ export default async (job: Job, done:DoneCallback) => {
                     logger("user not in list "+to)
                     done();
                 }
+
+                return;
                 
             }).catch((error) => {
                 done(error);
+                return;
             });
+
+            return;
 
         }).catch((error) => {
             done(error);
+            return;
         })
         
     }
