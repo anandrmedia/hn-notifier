@@ -55,13 +55,18 @@ export default async (job: Job, done:DoneCallback) => {
                 const id = response.data.id;
                 const type = response.data.type;
 
-                //Notify this user.
-                const notificationTitle = commentBy+' replied to your '+type
-                const notificationBody = commentText;
+                const users = await redis.lrange('users',0,-1);
 
-                logger(notificationTitle);
-                engagespot.send(to,notificationTitle,notificationBody,'https://news.ycombinator.com/item?id='+id+'#33099007','https://news.ycombinator.com/y18.gif');
+                //Send notification only if they're using our extension
+                if(users.indexOf(to) > -1){
+                    //Notify this user.
+                    const notificationTitle = commentBy+' replied to your '+type
+                    const notificationBody = commentText;
 
+                    logger(notificationTitle);
+                    engagespot.send(to,notificationTitle,notificationBody,'https://news.ycombinator.com/item?id='+id+'#33099007','https://news.ycombinator.com/y18.gif');
+
+                }
                 done();
             }).catch((error) => {
                 done(error);
