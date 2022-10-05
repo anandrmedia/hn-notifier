@@ -1,5 +1,6 @@
 import axios from "axios";
 import { DoneCallback, Job } from "bull";
+import { Processor } from "bullmq";
 import { getMaxItemId } from "./api.listener";
 import { AppConfig } from "./config";
 import { engagespot } from "./engagespot";
@@ -7,7 +8,7 @@ import { logger } from "./logger";
 import { queue } from "./queue";
 import { redis } from "./redis";
 
-export const processor = async (job: Job) => {
+export const processor = async (job) => {
 
     logger('processor started');
 
