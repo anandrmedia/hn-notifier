@@ -18,7 +18,7 @@ fetch('https://hnnotifier.engagespot.co/register', {
 });
 
 Engagespot.render('#esBellIcon', {
-    apiKey: 'td11pqkaifs7wjmu1hcc',
+    apiKey: 'otktz21s4eccxe0fip3th',
     userId: myId,
     theme:{
         colors:{

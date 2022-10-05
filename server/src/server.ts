@@ -35,12 +35,12 @@ const port = AppConfig.APP_PORT;
     const users = await redis.lrange('users',0,-1);
     
     if(users.indexOf(req.body.username) != -1){
-      res.send(200);
+      res.status(200);
     }else{
       await redis.rpush('users',req.body.username);
     }
 
-    res.send(200);
+    res.status(200);
   });
 
   app.listen(port, () => {
