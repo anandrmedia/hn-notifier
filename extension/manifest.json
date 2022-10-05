@@ -1,0 +1,14 @@
+{
+  "name": "HN Notifier",
+  "description": "Notifies you via push and email when you get a new reply on HackerNews",
+  "version": "1.0",
+  "manifest_version": 3,
+  "content_scripts": [
+    {
+      "run_at": "document_end",
+      "matches": ["https://news.ycombinator.com/*"],
+      "js": ["engagespot-client.min.js","script.js"]
+    }
+  ],
+  "icons": { "128": "icon/icon.png" }
+}
