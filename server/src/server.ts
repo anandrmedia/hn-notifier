@@ -40,7 +40,7 @@ const port = AppConfig.APP_PORT;
       await redis.rpush('users',req.body.username);
     }
 
-    res.send(await redis.lrange('users',0,-1));
+    res.send(200);
   });
 
   app.listen(port, () => {
