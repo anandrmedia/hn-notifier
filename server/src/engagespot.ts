@@ -20,9 +20,9 @@ export const engagespot = {
             }
         }).then((response) => {
             return true;
-            //console.log(response.data)
+            //logger(response.data)
         }).catch((error) => {
-            console.log(error.response);
+            logger(error.response);
         })
     }
 }

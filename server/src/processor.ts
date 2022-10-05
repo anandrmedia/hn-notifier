@@ -21,7 +21,7 @@ export default async (job: Job, done:DoneCallback) => {
             logger('looping back till '+lastMaxId);
 
             for(let i=maxItemId; i>lastMaxId; i--){
-                console.log("Pushing to fetch_and_notify with id ",i);
+                logger("Pushing to fetch_and_notify with id ",i);
                 queue.add('fetch_and_notify',{
                     name:'fetch_and_notify',
                     id:i
@@ -57,7 +57,7 @@ export default async (job: Job, done:DoneCallback) => {
                 const notificationTitle = commentBy+' replied to your '+type
                 const notificationBody = commentText;
 
-                console.log(notificationTitle);
+                logger(notificationTitle);
                 engagespot.send(to,notificationTitle,notificationBody,'https://news.ycombinator.com/item?id='+id+'#33099007','https://news.ycombinator.com/y18.gif');
 
                 done();
