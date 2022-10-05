@@ -58,7 +58,7 @@ export default async (job: Job, done:DoneCallback) => {
                 const notificationBody = commentText;
 
                 console.log(notificationTitle);
-                engagespot.send(to,notificationTitle,notificationBody,'https://news.ycombinator.com/item?id='+id,'https://news.ycombinator.com/y18.gif');
+                engagespot.send(to,notificationTitle,notificationBody,'https://news.ycombinator.com/item?id='+id+'#33099007','https://news.ycombinator.com/y18.gif');
 
                 done();
             }).catch((error) => {

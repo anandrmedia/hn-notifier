@@ -8,7 +8,7 @@ bellIconHolder.style.float = 'right'
 pagetop.parentNode.insertBefore(bellIconHolder, pagetop.nextSibling);
 
 //Register
-fetch('http://127.0.0.1:3002/register', {
+fetch('https://hnnotifier.engagespot.co/register', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
