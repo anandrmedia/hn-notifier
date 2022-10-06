@@ -62,7 +62,7 @@ export const processor = async (job) => {
                 if(users.indexOf(to) > -1 && (to != commentBy)){
                     users = null;
                     //Notify this user.
-                    const notificationTitle = commentBy+' replied to your '+type
+                    const notificationTitle = '<strong>'+commentBy+'</strong> replied to your '+type
                     const notificationBody = commentText;
 
                     logger(notificationTitle);
