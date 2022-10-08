@@ -53,7 +53,7 @@ export  const worker = new Worker('hn_worker_queue',async (job: Job) => {
       logger('fetch_and_notify job received for id '+job.data.id);
       axios.get(AppConfig.HN_API_FETCH_ITEM_URL+job.data.id+'.json').then((response) => {
           
-          if(response.data.type != 'comment'){
+          if(response?.data?.type != 'comment'){
               return Promise.resolve(true);
           }
 
