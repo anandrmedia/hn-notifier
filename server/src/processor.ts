@@ -8,7 +8,7 @@ import { logger } from "./logger";
 import { queue } from "./queue";
 import { redis } from "./redis";
 
-export const processor = async (job) => {
+export const processor = async (job: any) => {
 
     logger('processor started');
 
