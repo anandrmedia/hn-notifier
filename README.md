@@ -8,6 +8,8 @@ This extension makes it easy by showing you the latest replies to your thread wh
 
 Download this extension from Google Chrome Webstore - https://chrome.google.com/webstore/detail/hn-notifier/cdfedlekfaealogpkppjhlfcijmdlaep
 
+Follow us on twitter for more updates - https://twitter.com/engagespot
+
 # Source Code
 
 This project is open source. It has two components
@@ -16,3 +18,9 @@ This project is open source. It has two components
 2. Chrome Extension
 
 Backend Worker polls Hacker News APIs and figure out whom to be notified. It is written in `node`, `bull`. Feel free to submit PRs.
+
+# Setting Up Locally
+
+### Run the background worker
+
+1. Run `docker-compose up` inside `server` folder. It starts a background script that listens for new 
