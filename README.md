@@ -22,13 +22,3 @@ This project is open source. It has two components
 2. Chrome Extension
 
 Backend Worker polls Hacker News APIs and figure out whom to be notified. It is written in `node`, `bull`. Feel free to submit PRs.
-
-## Requirements
-
-1. Engagespot API Key and API Secret, which you can create for free at https://engagespot.co
-
-# Setting Up Locally
-
-### Run the background worker
-
-1. Run `docker-compose up` inside `server` folder. It starts a background script that listens for new 
