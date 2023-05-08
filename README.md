@@ -1,4 +1,4 @@
-# HN Notifier
+# HN Notifier - A Hacker News Notifications Google Chrome Extension
 
 ![Hn Notifier Screenshot](https://cdn.engagespot.co/misc/hn_notifier.png)
 
