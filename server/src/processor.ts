@@ -55,6 +55,7 @@ export const processor = async (job: any) => {
                 const to = response.data.by;
                 const id = response.data.id;
                 const type = response.data.type;
+                const title = response.data.title;
 
                 let users: string[] | null = await redis.lrange('users',0,-1);
 
@@ -66,7 +67,12 @@ export const processor = async (job: any) => {
                     const notificationBody = commentText;
 
                     logger(notificationTitle);
-                    await engagespot.send(to,notificationTitle,notificationBody,'https://news.ycombinator.com/item?id='+id+'#33099007','https://news.ycombinator.com/y18.gif');
+                    await engagespot.send(to,8520, {
+                        user: commentBy,
+                        comment: commentText,
+                        storyTitle: title.slice(0,15)+'...',
+                        url: 'https://news.ycombinator.com/item?id='+id
+                    });
                     return Promise.resolve(true);
                 }else{
                     logger("user not in list "+to);

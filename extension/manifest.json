@@ -1,7 +1,7 @@
 {
-  "name": "HN Notifier",
-  "description": "Notifies you via push and email when you get a new reply on HackerNews",
-  "version": "1.0",
+  "name": "HN Notifier - Hacker News Reply Notifications",
+  "description": "Notifies you via in-app bell when you get a new reply on HackerNews",
+  "version": "1.1",
   "manifest_version": 3,
   "content_scripts": [
     {
@@ -10,5 +10,11 @@
       "js": ["engagespot-client.min.js","script.js"]
     }
   ],
-  "icons": { "128": "icon/icon.png" }
+  "icons": { "128": "icon/icon.png" },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "tabs"
+  ]
 }

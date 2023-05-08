@@ -3,17 +3,15 @@ import { AppConfig } from "./config"
 import { logger } from "./logger";
 
 export const engagespot = {
-    send: async (recipient: string, title: string, message: string, url: string, icon: string) =>{
+    send: async (recipient: string, templateId: number, data: any) =>{
         axios.post('https://api.engagespot.co/v3/notifications',{
             notification: {
-                title: title,
-                message:message,
-                url:url,
-                icon:icon
+                templateId: templateId
             },
             "recipients": [
                 recipient
-            ]
+            ],
+            data
         },{
             headers:{
                 'X-ENGAGESPOT-API-KEY': AppConfig.ENGAGESPOT_API_KEY,

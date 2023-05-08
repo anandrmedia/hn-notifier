@@ -7,10 +7,16 @@ bellIconHolder.style.float = 'right'
 
 pagetop.parentNode.insertBefore(bellIconHolder, pagetop.nextSibling);
 
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    const userId = document.getElementById("me")?.innerText;
+    sendResponse({ userId: userId});  
+    return true;
+});
+
 //Register
 //prod https://hnnotifier.engagespot.co
 //loc http://localhost:3002
-fetch('https://hnnotifier.engagespot.co/register', {
+fetch('http://localhost:3004/register', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',

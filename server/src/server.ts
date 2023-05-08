@@ -27,18 +27,22 @@ const port = AppConfig.APP_PORT;
 
   //Initialize a default route for health checking
   app.get('/', (req: Request, res: Response) => {
-    res.send('HN-Notify running');
+    res.send('HN-Notify running!');
   });
 
   //Initialize a default route for health checking
   app.post('/register', async (req: Request, res: Response) => {
     const users = await redis.lrange('users',0,-1);
+
+    console.log("Redis fetch succeeded. Now checking if user exists");
     
     if(users.indexOf(req.body.username) != -1){
-      res.status(200).send('ok');
+      console.log("sending");
+      return res.status(200).send('ok');
     }else{
-      await redis.rpush('users',req.body.username);
-      res.status(200).send('ok');
+      await redis.rpush('users',req.body.username).catch((err: any) => console.log("Redis failed", err));
+      console.log("sending 2");
+      return res.status(200).send('ok');
     }
   });
 
