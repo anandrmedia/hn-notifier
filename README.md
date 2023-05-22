@@ -8,7 +8,11 @@ This extension makes it easy by showing you the latest replies to your thread wh
 
 Download this extension from Google Chrome Webstore - https://chrome.google.com/webstore/detail/hn-notifier/cdfedlekfaealogpkppjhlfcijmdlaep
 
-Follow us on twitter for more updates - https://twitter.com/engagespot
+Follow me on twitter for more updates - https://twitter.com/anandrmedia
+
+# Technology
+
+This extension was built using <a href="https://engagespot.co?ref=hn_notify_repo" target="_blank">Engagespot Notification Infrastructure API</a>
 
 # Features
 
