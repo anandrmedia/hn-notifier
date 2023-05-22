@@ -37,7 +37,7 @@ You'll get batched email notifications like in Facebook, instead of spamming you
 
 # Privacy
 
-This extension does not collect any of your private information such as email id, or cookies. The extension simply use your public Hacker News username and track replies to your posts / comments and notifies you via the bell. (No push notifications or emails!)
+This extension does not collect any of your private information such as email id, or cookies without your consent. The extension simply use your public Hacker News username and track replies to your posts / comments and notifies you via the bell, and optionally email.
 
 # Source Code
 
