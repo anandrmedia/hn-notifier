@@ -7,9 +7,12 @@ HN Notifier is a chrome extension that shows the number of unread comments to yo
 This extension makes it easy by showing you the latest replies to your thread while you were away!
 
 Download this extension from Google Chrome Webstore - 
+
 [![download](https://engagespot-website.s3.us-west-2.amazonaws.com/public/chrome_web_store_cta_57346788d7.png?updated_at=2023-05-22T06:00:11.705Z)](https://chrome.google.com/webstore/detail/hn-notifier/cdfedlekfaealogpkppjhlfcijmdlaep)
 
-Follow me on twitter for more updates - https://twitter.com/anandrmedia
+Follow us on twitter for more updates - 
+https://twitter.com/anandrmedia
+https://twitter.com/engagespot
 
 # Technology
 
