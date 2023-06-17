@@ -16,7 +16,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 //Register
 //prod https://hnnotifier.engagespot.co
 //loc http://localhost:3002
-fetch('http://localhost:3004/register', {
+fetch('https://hnnotifier.engagespot.co/register', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
